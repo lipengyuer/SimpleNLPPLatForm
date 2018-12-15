@@ -3,7 +3,7 @@ Created on 2018年12月12日
 
 @author: pyli
 '''
-from configure import runTime
+from src.configure import runTime
 
 #递归的从任务依赖表中查询当前任务名称对应的前序任务
 def findAllEarlierTask(taskName, res):
@@ -26,10 +26,19 @@ def getNecessaryTaskList(taskList):
             for necessaryTsakNeme in earlierTaskList:
                 if necessaryTsakNeme not in necessaryTaskList:
                     necessaryTaskList.append(necessaryTsakNeme)
+    necessaryTaskList.reverse()
     return necessaryTaskList
-    
+
+def getTaskList(articleList, url):
+    for article in articleList:
+        article.taskList = url[1:].split('-')
+        article.mustTaskList = getNecessaryTaskList(article.taskList)
+        print("调用方式是", url)
+    return articleList
+
 if __name__ == '__main__':
-    getNecessaryTaskList(['wordSegment'])
+    res = getNecessaryTaskList(['wordSegment'])
+    print(res)
     
     
     

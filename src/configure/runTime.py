@@ -11,3 +11,18 @@ TASK_DEPEND_MAP = {
     'sentenceSplit': ['paragraphSplit'],
     'wordSegment': ['sentenceSplit']
     }
+
+
+#任务和需要执行的函数名的对应表
+TASK_METHOD_MAP = {
+    'paragraphSplit': 'splitTextIntoParagraphList',
+    'sentenceSplit': 'splitTextIntoSentences',
+    'wordSegment': 'splitSentenceIntoWords'
+}
+
+#任务和article的属性对应表
+TASK_ARTICLE_ATTR_MAP = {
+    'paragraphSplit': 'paragraphList',
+    'sentenceSplit': 'sentencesList',
+    'wordSegment': 'words'
+}

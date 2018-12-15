@@ -14,12 +14,14 @@ import json
 import requests
 import time
 #keyExpression
-from configure import tools
+from src.configure import tools
 localIP = tools.get_host_ip()
 localPort = 1024
-restfulUrl = 'http://' + localIP +':' + str(localPort)
+restfulUrl = 'http://' + localIP +':' + str(localPort) + '/sentenceSplit'
+restfulUrl = 'http://' + localIP +':' + str(localPort) + '/wordSegment-sentenceSplit'
+
 content =[{'title':'','content':'''
-我明天要去苏州博物馆了,玩解谜游戏.
+我明天要去苏州博物馆了,玩解谜游戏。
 ''' }]
 
 data = json.dumps(content)
